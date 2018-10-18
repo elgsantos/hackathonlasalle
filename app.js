@@ -38,7 +38,7 @@ if (!config.SERVER_URL) { //used for ink to static files
 
 
 
-app.set('port', (process.env.PORT || 5000))
+//app.set('port', (process.env.PORT || 5000))
 
 //verify request came from facebook
 app.use(bodyParser.json({
@@ -891,6 +891,10 @@ function isDefined(obj) {
 }
 
 // Spin up the server
+/*
 app.listen(app.get('port'), function () {
 	console.log('running on port', app.get('port'))
-})
+})*/
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
